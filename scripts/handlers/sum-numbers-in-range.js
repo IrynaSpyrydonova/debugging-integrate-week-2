@@ -6,15 +6,24 @@ console.log('--- loading: sum numbers in range');
 function sumNumbersInRangeHandler() {
   debugger;
   console.log('\n--- action: sum numbers in range ---');
-  console.log('range:', typeof range, '\n', range);
 
-  // perform core logic
-  let sum = 0;
-  for (let i = _; i <= _; i++) {
-    sum += _;
+  // read inputs from user
+  const start = +prompt('Please enter the lowest number of the range');
+  const end = +prompt('Please enter the highest number of the range');
+  console.log('start:', typeof start, '\n', start);
+  console.log('end:', typeof end, '\n', end);
+
+  if (isNaN(start) || isNaN(end)) {
+    alert ('Please enter the valid number of start or/and end of the range');
+    return;
   }
-  console.log('sum:', typeof sum, '\n', sum);
-
-  // alert result for the user
-  alert(sum);
+    // perform core logic
+    let sum = 0;
+    for (let i = start; i <= end; i++) {
+      sum += i;
+    }
+    console.log('sum:', typeof sum, '\n', sum);
+    // alert result for the user
+    alert(`The sum of numbers is ${sum}`);
 }
+

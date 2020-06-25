@@ -9,7 +9,11 @@ function evensOrOddsHandler() {
   console.log('range:', typeof range, '\n', range);
 
   // read user input
-  const displayEvens = confirm('would you like to see even numbers?');
+  const start = +prompt(`Please enter the lowest number of the range `);
+  console.log('start:', typeof start, '\n', start);
+  const end = +prompt(`Please enter the highest number of the range`);
+  console.log('end:', typeof end, '\n', end);
+  const displayEvens = confirm(`Would you like to see even numbers? "Yes" - push Ok   "For the Odds" push Cancel`);
   console.log('displayEvens:', typeof displayEvens, '\n', displayEvens);
 
   // perform core logic
@@ -22,12 +26,14 @@ function evensOrOddsHandler() {
       "2, 4, 6, 8, "
     ...
   */
-  let listedNumbers = '';
-  for (_; _; _) {
-
-  }
+    let listedNumbers = '';
+      for (let i = start; i <= end; i++) {
+        displayEvens ? 
+          i % 2 === 0 ? listedNumbers += `${i}, `: listedNumbers
+        : i % 2 !== 0? listedNumbers += `${i}, `: listedNumbers
+      }
   console.log('listedNumbers:', typeof listedNumbers, '\n', listedNumbers);
 
   // alert result for the user
   alert(listedNumbers);
-}
+};

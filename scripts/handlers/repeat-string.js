@@ -6,23 +6,24 @@ console.log('--- loading: repeat string');
 function repeatStringHandler() {
   debugger;
   console.log('\n--- action: repeat string ---');
-  console.log('range:', typeof range, '\n', range);
-  console.log('stringToRepeat:', typeof stringToRepeat, '\n', stringToRepeat);
 
   // read inputs from user
-  const stringToRepeat = prompt('enter a string to repeat');
+  const stringToRepeat = prompt('Enter a string to repeat');
   console.log('stringToRepeat:', typeof stringToRepeat, '\n', stringToRepeat);
-  if (stringToRepeat !== null) {
-    return;
-  }
+  const range = +prompt('How many times do you want to repeat the string?');
+  console.log('range:', typeof range, '\n', range);
 
-  // perform core logic
-  let repeatedString;
-  for (let i = 1; i < range; i++) {
-    repeatedString += repeatedString;
+  if (range == null || isNaN(range) || stringToRepeat === null) {
+      alert (`Please enter the valid number to repeat your string`);
+  } else {
+    // perform core logic
+    let repeatedString = '';
+    for (let i = 0; i <= range; i++) {
+      repeatedString += stringToRepeat;
+    }
+    console.log('repeatedString:', typeof repeatedString, '\n', repeatedString);
+  
+    // alert result for the user
+    alert(repeatedString);
   }
-  console.log('repeatedString:', typeof repeatedString, '\n', repeatedString);
-
-  // alert result for the user
-  alert(stringToRepeat);
 }
